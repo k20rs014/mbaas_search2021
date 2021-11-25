@@ -62,6 +62,67 @@
         })
     }
 
+    function searchAttack(){
+      let TestDataClass = ncmb.DataStore(db);
+      let attack = $("#attack").val();
+      attack = parseInt(attack);
+      TestDataClass.equalTo("attack",attack).fetchAll()
+        .then(function(results){
+          showResults(results);
+        })
+    }
+
+    function searchAttackLTE(){
+      let TestDataClass = ncmb.DataStore(db);
+      let attack = $("#attack").val();
+      attack = parseInt(attack);
+      TestDataClass.lessThanOrEqualTo("attack",attack).fetchAll()
+        .then(function(results){
+          showResults(results);
+        })
+    }
+
+    function searchAttackGTE(){
+      let TestDataClass = ncmb.DataStore(db);
+      let attack = $("#attack").val();
+      attack = parseInt(attack);
+      TestDataClass.greaterThanOrEqualTo("attack",attack).fetchAll()
+        .then(function(results){
+          showResults(results);
+        })
+    }
+
+    function searchDefence(){
+      let TestDataClass = ncmb.DataStore(db);
+      let defence = $("#defence").val();
+      defence = parseInt(defence);
+      TestDataClass.equalTo("defence",defence).fetchAll()
+        .then(function(results){
+          showResults(results);
+        })
+    }
+
+    function searchDefenceLTE(){
+      let TestDataClass = ncmb.DataStore(db);
+      let defence = $("#defence").val();
+      defence = parseInt(defence);
+      TestDataClass.lessThanOrEqualTo("defence",defence).fetchAll()
+        .then(function(results){
+          showResults(results);
+        })
+    }
+
+    function searchDefenceGTE(){
+      let TestDataClass = ncmb.DataStore(db);
+      let defence = $("#defence").val();
+      defence = parseInt(defence);
+      TestDataClass.greaterThanOrEqualTo("defence",defence).fetchAll()
+        .then(function(results){
+          showResults(results);
+        })
+    }
+
+
     function showResults(results) {
       // テーブルのヘッダを生成
       let msg = "<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
@@ -90,6 +151,14 @@
   <div>
     <label for="level">level:</label>
     <input id="level" type="number" placeholder="monster level">
+  </div>
+  <div>
+    <label for="attack">attack:</label>
+    <input id="attack" type="number" placeholder="monster attack">
+  </div>
+  <div>
+    <label for="defence">defence:</label>
+    <input id="defence" type="number" placeholder="monster defence">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
